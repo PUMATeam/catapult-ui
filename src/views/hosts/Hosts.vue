@@ -4,22 +4,28 @@
         <appHost v-for="host in hosts" :host="host" :key="host.id">
         </appHost>
       </div>
+      <q-dialog v-model="showNewHostModal">
+        <appNewHost></appNewHost>
+      </q-dialog>
       <q-page-sticky position="bottom-right" :offset="[18, 18]">
-        <q-btn fab icon="add" color="primary" />
+        <q-btn fab icon="add" color="primary" @click="showNewHostModal = true" />
       </q-page-sticky>
     </div>
 </template>
 <script>
 import Host from './Host'
+import NewHost from './NewHost'
 
 export default {
   data () {
     return {
+      showNewHostModal: false
     }
   },
 
   components: {
-    appHost: Host
+    appHost: Host,
+    appNewHost: NewHost
   },
 
   methods: {

@@ -1,5 +1,6 @@
 import {
-  getHosts
+  getHosts,
+  createHost
 } from '../api/hosts'
 
 const state = {
@@ -19,6 +20,15 @@ const actions = {
     }).catch(err => {
       console.log(err)
     })
+  },
+  CREATE_HOST ({ commit }, [host, installHost]) {
+    createHost(host, installHost)
+    // TODO: proper response and error handling
+      .then(response => {
+        console.log(response)
+      }).catch(err => {
+        console.log(err)
+      })
   }
 }
 

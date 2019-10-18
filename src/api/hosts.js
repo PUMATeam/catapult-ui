@@ -7,3 +7,7 @@ const api = axios.create({
 export function getHosts () {
   return api.get('hosts')
 }
+
+export function createHost (host, installHost) {
+  return api.post(`hosts?install=${installHost}`, host)
+}
